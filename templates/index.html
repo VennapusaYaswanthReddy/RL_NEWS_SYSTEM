@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>News Recommendation</h1>
+        <div class="article">
+            <h2>{{ article['title'] }}</h2>
+            <p>{{ article['content'] }}</p>
+        </div>
+
+        <form action="/feedback" method="POST">
+            <div>
+                <button type="submit" name="action" value="like">Like</button>
+                <button type="submit" name="action" value="dislike">Dislike</button>
+            </div>
+            <textarea name="feedback" placeholder="Leave your feedback here..."></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <div class="reward">
+            <p>Total Reward: {{ total_reward }}</p>
+        </div>
+    </div>
+</body>
+</html>
